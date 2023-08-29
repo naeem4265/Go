@@ -2,11 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/golang-jwt/jwt/v4"
 	"log"
 	"net/http"
 	"time"
-
-	"github.com/golang-jwt/jwt/v4"
 )
 
 var jwtKey = []byte("my_secret_key")
@@ -77,7 +76,6 @@ var Albums = []book{
 }
 
 func getAlbums(w http.ResponseWriter, r *http.Request) {
-	// We can obtain the session token from the requests cookies, which come with every request
 	c, err := r.Cookie("token")
 	if err != nil {
 		if err == http.ErrNoCookie {
