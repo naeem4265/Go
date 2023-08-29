@@ -6,7 +6,6 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 	"log"
 	"net/http"
-	"strconv"
 	"time"
 )
 
@@ -66,9 +65,9 @@ func Signin(w http.ResponseWriter, r *http.Request) {
 }
 
 type book struct {
-	Id    string  `json: "id"`
-	Title string  `json: "title"`
-	Price float64 `json: "price"`
+	Id    string  `json:"id"`
+	Title string  `json:"title"`
+	Price float64 `json:"price"`
 }
 
 var Albums = []book{
@@ -111,6 +110,7 @@ func getAlbums(w http.ResponseWriter, r *http.Request) {
 	albumJSON, err := json.Marshal(Albums)
 	w.Write(albumJSON)
 }
+
 func postAlbums(w http.ResponseWriter, r *http.Request) {
 	c, err := r.Cookie("token")
 	if err != nil {
@@ -151,6 +151,7 @@ func postAlbums(w http.ResponseWriter, r *http.Request) {
 	Albums = append(Albums, temp)
 	w.WriteHeader(http.StatusCreated)
 }
+
 func getAlbumById(w http.ResponseWriter, r *http.Request) {
 	c, err := r.Cookie("token")
 	if err != nil {
@@ -184,21 +185,117 @@ func getAlbumById(w http.ResponseWriter, r *http.Request) {
 	}
 	//authentication checked
 
-	id, err := strconv.Atoi(chi.URLParam(r, "id"))
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		http.Error(w, err.Error(), 400)
-		return
-	}
-	w.WriteHeader(id)
-	/*
-		var temp book
-		if err := json.NewDecoder(r.Body).Decode(&temp); err != nil {
-			w.WriteHeader(http.StatusBadRequest)
+	id := chi.URLParam(r, "id")
+
+	for idx, _ := range Albums {
+		a := Albums[idx]
+		if a.Id == id {
+			albumJSON, err := json.Marshal(Albums[idx])
+			if err != nil {
+				w.WriteHeader(http.StatusBadRequest)
+				return
+			}
+			w.Write(albumJSON)
 			return
 		}
-		Albums = append(Albums, temp)
-		w.WriteHeader(http.StatusCreated)*/
+	}
+	w.WriteHeader(http.StatusNotFound)
+}
+
+func putAlbum(w http.ResponseWriter, r *http.Request) {
+	c, err := r.Cookie("token")
+	if err != nil {
+		if err == http.ErrNoCookie {
+			// If the cookie is not set, return an unauthorized status
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		// For any other type of error, return a bad request status
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	tknStr := c.Value
+
+	claims := &Claims{}
+	tkn, err := jwt.ParseWithClaims(tknStr, claims, func(token *jwt.Token) (interface{}, error) {
+		return jwtKey, nil
+	})
+	if err != nil {
+		if err == jwt.ErrSignatureInvalid {
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	if !tkn.Valid {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+	//authentication checked
+
+	id := chi.URLParam(r, "id")
+
+	for idx, _ := range Albums {
+		a := Albums[idx]
+		if a.Id == id {
+			var temp book
+			if err := json.NewDecoder(r.Body).Decode(&temp); err != nil {
+				w.WriteHeader(http.StatusBadRequest)
+				return
+			}
+			Albums[idx] = temp
+			w.WriteHeader(http.StatusCreated)
+			return
+		}
+	}
+	w.WriteHeader(http.StatusNotFound)
+}
+
+func deleteAlbum(w http.ResponseWriter, r *http.Request) {
+	c, err := r.Cookie("token")
+	if err != nil {
+		if err == http.ErrNoCookie {
+			// If the cookie is not set, return an unauthorized status
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		// For any other type of error, return a bad request status
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	tknStr := c.Value
+
+	claims := &Claims{}
+	tkn, err := jwt.ParseWithClaims(tknStr, claims, func(token *jwt.Token) (interface{}, error) {
+		return jwtKey, nil
+	})
+	if err != nil {
+		if err == jwt.ErrSignatureInvalid {
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	if !tkn.Valid {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+	//authentication checked
+
+	id := chi.URLParam(r, "id")
+
+	for idx, _ := range Albums {
+		a := Albums[idx]
+		if a.Id == id {
+			Albums = append(Albums[:idx], Albums[idx+1:]...)
+			return
+		}
+	}
+	w.WriteHeader(http.StatusNotFound)
 }
 
 func main() {
@@ -207,7 +304,9 @@ func main() {
 	router.Post("/signin", Signin)
 	router.Get("/albums", getAlbums)
 	router.Get("/albums/{id}", getAlbumById)
+	router.Put("/albums/{id}", putAlbum)
 	router.Post("/albums", postAlbums)
+	router.Delete("/albums/{id}", deleteAlbum)
 
 	// start the server on port 8000
 	log.Fatal(http.ListenAndServe(":8000", router))
