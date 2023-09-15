@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server-deployment
+  labels:
+    app: api-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-server
+  template:
+    metadata:
+      name: api-server-pod
+      labels:
+        app: api-server
+    spec:
+      containers:
+        - name: api-server
+          image: naeem4265/api-server:1.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
