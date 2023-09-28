@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"github.com/golang-jwt/jwt/v4"
+	"k8s.io/client-go"
 	"net/http"
 	"time"
 )
@@ -25,6 +26,7 @@ type Claims struct {
 }
 
 func SignIn(w http.ResponseWriter, r *http.Request) {
+	client_go.Hello
 	var creds Credentials
 	err := json.NewDecoder(r.Body).Decode(&creds)
 	if err != nil {

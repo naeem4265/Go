@@ -1,0 +1,43 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pods-app
+  labels:
+    app: pods
+spec:
+  containers:
+    - name: pods-app
+      image: naeem4265/in-cluster:1.0.0
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pods-service
+spec:
+  selector:
+    app: pods
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /hello(/|$)(.*)
+            backend:
+              service:
+                name: pods-service
+                port:
+                  number: 8080
+---
