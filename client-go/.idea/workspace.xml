@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27c9dc8-a5d3-4272-8d74-36c2f7cf78c1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../api-server/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-server/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/handlers/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/handlers/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/github.com/gorilla/securecookie/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/github.com/gorilla/securecookie/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/github.com/gorilla/securecookie/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/github.com/gorilla/securecookie/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/github.com/gorilla/securecookie/fuzz.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/github.com/gorilla/securecookie/securecookie.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-server/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/vendor/modules.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/in-cluster.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/in-cluster.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out-cluster/out.go" beforeDir="false" afterPath="$PROJECT_DIR$/out-cluster/out.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../concurrency/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../concurrency/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../concurrency/mutex.go" beforeDir="false" afterPath="$PROJECT_DIR$/../concurrency/mutex.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,23 +41,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/appscodepc/go/src/github.com/naeem4265/helm",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/appscodepc/go/src/github.com/naeem4265/helm&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/in-cluster" />

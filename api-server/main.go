@@ -24,8 +24,8 @@ func main() {
 		r.Delete("/{id}", handlers.DeleteAlbum)
 	})
 
-	fmt.Println("Server started at :8000")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	fmt.Println("Server started at :8080")
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
 func middleware(next http.Handler) http.Handler {
