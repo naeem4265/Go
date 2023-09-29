@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: xyz
+  labels:
+    app: xyz
+spec:
+  containers:
+    - name: xyz
+      image: naeem4265/api-server:1.0.5
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080

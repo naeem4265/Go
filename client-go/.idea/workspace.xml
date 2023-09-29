@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27c9dc8-a5d3-4272-8d74-36c2f7cf78c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../api-server/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-server/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../api-server/vendor/modules.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,9 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -53,9 +53,11 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/appscodepc/go/src/github.com/naeem4265/helm&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/appscodepc/go/src/github.com/naeem4265/api-server&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
 }</component>
   <component name="RecentsManager">
